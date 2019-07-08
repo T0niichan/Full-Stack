@@ -9,3 +9,7 @@
 .ebin{
   font-size: 18px;
 }
+
+body {
+  width: 650px;
+}
