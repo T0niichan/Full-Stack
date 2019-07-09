@@ -1,0 +1,28 @@
+.kuva1 {
+  width: 320px;
+  height: 300px;
+  display: block;
+  margin: 0 auto;
+}
+
+.otsikko{
+  font-size: 50px;
+  text-align: center;
+}
+.ebin{
+  font-size: 18px;
+}
+
+html{
+  font-size: 10px;
+  font-family: "Open Sans", sans-serif;
+  background-color: pink;
+}
+
+body{
+  width: 650px;
+  background: white;
+  margin: 0 auto;
+  padding: 0 20px 20px 20px;
+  border: 5px solid black;
+}
