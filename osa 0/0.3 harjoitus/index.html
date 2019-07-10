@@ -1,30 +1,27 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <link rel="stylesheet" href="0.3 CSS.css">
-</head>
-<body>
+Tallenna nappia painettaessa tapahtuu 5 pyyntöä. Pyyntö 1. lähettää serverille uudelleenohjauspyynnön kehoittaa sivua lataamaan locationin eli "Notes" tiedoston uudestaan. Pyyntö 2, 3 ja 4 lataavat uudestaan ja päivittyvä
 
-<form class="ebin" action="index.html" method="post">
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" name="name" value="">
-    </div>
-    <div class="">
-      <label for="mail">E-Mail</label>
-      <input type="text" name="mail" value="">
-    </div>
-    <div class="">
-      <label for="msg">Message</label>
-      <textarea name="msg" rows="8" cols="40"></textarea>
-    </div>
-<div class="button">
-  <input type="submit" name="button" value="This is button">
-</div>
-</form>
+pyyntö 1.
+selain -> palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+(Selaimessa tapahtuva pyyntö on koodilla 302, joka on uudelleenohjauspyyntö. Selain lähettää palvelimelle tekstikenttään kirjoitetun datan.). Lähetetty data menee new_note osoitteeseen. Uudelleenohjauspyyntö kehoittaa selainta tekemään uudelleenohjauspyynnön Headerin location kohtaan joka tässä tapauksessa on notes. TÄmä tapahtuu sen takia, koska <form action="/new_note" method="POST">. Palvelilemma on rullaamassa JS koodia joka määrittelee mitä tapahtuu kun sivulta saapuvat tietyt attribuutit.
+palvelin --> selain: 37: {content: "test", date: "2019-07-10T09:14:22.127Z"}
 
+pyyntö 2.
+selain -> palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+Pyyntöön vastattiin onnistuneesti, koska sen koodi oli 200
+palvelin --> Selain: html runko
 
-</body>
-</html>
+pyyntö 3.
+selain -> palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+Pyyntöön vastattiin onnistuneesti, koska sen koodi oli 200
+palvelin --> selain: main.css
+
+pyyntö 4.
+selain -> palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+ladattu sivu alkaa suorittamaamaan main.js sisältämää javascriptiä jonka tarkoitus on noutaa data.json
+Pyyntöön vastattiin onnistuneesti, koska sen koodi oli 200
+palvelin --> selain: main.js
+
+pyyntö 5.
+selain -> Palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+Pyyntöön vastattiin onnistuneesti, koska sen koodi oli 200
+palvelin --> selain: data.json
