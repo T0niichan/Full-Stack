@@ -1,4 +1,6 @@
-//Get current day
+
+
+/*Get current day
 let yeet = new Date();
 let dayNumber = yeet.getDay();
 const days = ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"];
@@ -41,7 +43,7 @@ if (kuukausi < 12) {
 }
 
 console.log(`${paivat}.${kuukausi}.${vuosi}`);
-
+*/
 
 //joululaskuri
 
@@ -51,6 +53,7 @@ let paiviaVuodessa = 365
 let karkausvuosi = 366;
 let paivienMaara;
 let date = new Date();
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 const month = new Array();
 month[0] = "January";
@@ -70,14 +73,18 @@ if (month == 0, 2, 4, 6, 7, 9, 11) {
   paivienMaara = 31;
 }else if (month == 3, 5, 8, 10) {
     paivienMaara = 30;
-}else if (isInteger == true && month = 1) {
+}else if (isInteger == true && month == 1) {
   paivienMaara = 29;
 }else {
     paivienMaara = 28;
 }
 
-if (currentMonth == Arraymonth) {
+let dayNumber = (month.reduce(reducer));
 
+
+
+if (currentMonth == Arraymonth) {
+  month.reduce();
 }
 
 
